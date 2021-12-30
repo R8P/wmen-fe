@@ -12,7 +12,19 @@ body {
     background-size: cover;
     background-color: #0d98ba;
 }
-
+a{
+    text-decoration: none;
+    color: var(--wm-white);
+}
+a:hover{
+    color: white;
+}
+.d-none{
+    display: none;
+}
+.d-block{
+    display: block;
+}
 label {
     color: var(--wm-white);
 }
@@ -25,11 +37,18 @@ label {
     min-height: 100vh;
 }
 
+.segment{
+    background: #05445E !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
 .search-box-form {
     background: var(--wm-secondary);
     border-radius: 5px;
     padding: 1rem;
     -webkit-box-shadow: 4px 6px 17px -4px rgba(61, 71, 166, 0.68);
     box-shadow: 4px 6px 17px -4px rgba(61, 71, 166, 0.68);
+}
+.search-box-form label{
+    color: whitesmoke!important;
 }
 

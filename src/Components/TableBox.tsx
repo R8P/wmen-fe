@@ -1,38 +1,85 @@
-import React from 'react';
-import {Table} from 'semantic-ui-react';
+import React, {Component} from 'react';
+import DataTable, {createTheme, TableColumn} from 'react-data-table-component';
+import ITData from "../interfaces/tdata.interface";
 
-const TableBox = () => {
-    return (
-        <>
-            <Table unstackable celled selectable>
-                <Table.Header>
-                    <Table.Row>
-                        <Table.HeaderCell>Name</Table.HeaderCell>
-                        <Table.HeaderCell>Status</Table.HeaderCell>
-                        <Table.HeaderCell textAlign='right'>Notes</Table.HeaderCell>
-                    </Table.Row>
-                </Table.Header>
+const customStyles = {
+    cells: {
+        style: {
+            cursor: "pointer",
+            whiteSpace: "no-wrap"
+        }
+    },
+    headCells: {
+        style: {
+            background: '#032c3d'
+        }
+    }
+};
+createTheme('wash-theme', {
+    text: {
+        primary: '#eee',
+        secondary: '#75E6DA',
+    },
+    background: {
+        default: '#05445E',
+    },
+    context: {
+        background: '#cb4b16',
+        text: '#FFFFFF',
+    },
+    divider: {
+        default: '#0d98ba',
+    },
+    highlightOnHover: {
+        default: "#0d98ba"
+    },
+    striped: {
+        background: "#c1c1c1"
+    }
+}, 'dark');
+const columns: TableColumn<ITData>[] = [
+    {
+        name: 'Id',
+        selector: row => row.id,
+    },
+    {
+        name: 'Partner Name',
+        selector: row => row.name,
+        sortable: true,
+    },
+    {
+        name: 'Address',
+        selector: row => row.address,
+    },
+    {
+        name: 'Website',
+        cell: row => (
+            <a href={row.website}>
+                {row.website}
+            </a>
+        ),
+    },
+    {
+        name: 'Office',
+        selector: row => row.officeCount,
+        sortable: true,
+    }
+];
 
-                <Table.Body>
-                    <Table.Row>
-                        <Table.Cell>John</Table.Cell>
-                        <Table.Cell>Approved</Table.Cell>
-                        <Table.Cell textAlign='right'>None</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell>Jamie</Table.Cell>
-                        <Table.Cell>Approved</Table.Cell>
-                        <Table.Cell textAlign='right'>Requires call</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell>Jill</Table.Cell>
-                        <Table.Cell>Denied</Table.Cell>
-                        <Table.Cell textAlign='right'>None</Table.Cell>
-                    </Table.Row>
-                </Table.Body>
-            </Table>
-        </>
-    );
+interface Props {
+    partners: Array<ITData>
+}
+
+interface State {
+    selectedId: number
+}
+
+class TableBox extends Component<Props, State> {
+    render() {
+        return <DataTable responsive={true} fixedHeader={true} fixedHeaderScrollHeight={"300px"} columns={columns}
+                          data={this.props.partners}
+                          highlightOnHover={true} theme="wash-theme" customStyles={customStyles}/>;
+    };
 };
 
 export default TableBox;

@@ -1,19 +1,44 @@
-import React from 'react';
-import {Segment,Message} from 'semantic-ui-react';
+import React, {Component} from 'react';
+import {Segment, Message} from 'semantic-ui-react';
 import TableBox from "./TableBox";
 
-const ResultBox = () => {
-    return (
-        <>
-           <Segment>
-               <Message warning>
-                   <Message.Header>You must register before you can do that!</Message.Header>
-                   <p>Visit our registration page, then try again.</p>
-               </Message>
-               <TableBox />
-           </Segment>
-        </>
-    );
+
+interface Props {
+    partners: any
+}
+
+interface State {
+    partners: Array<any>,
+}
+
+class ResultBox extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            partners: [],
+        };
+    }
+
+    componentWillReceiveProps(nextProps: any) {
+        this.setState({
+            partners: nextProps.partners
+        });
+    }
+
+    render() {
+        const {partners} = this.state;
+
+        return (
+            <>
+                <Segment className={partners.length > 0 ? "d-block" : "d-none"}>
+                    <Message warning>
+                        <Message.Header>Information about your partners within the distance range you choose.</Message.Header>
+                    </Message>
+                    <TableBox partners={partners}/>
+                </Segment>
+            </>
+        );
+    };
 };
 
 export default ResultBox;
