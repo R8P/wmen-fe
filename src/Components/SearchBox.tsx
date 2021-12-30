@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Form} from 'semantic-ui-react';
-import IPartner from "../interfaces/partner.interface";
+import {Form} from 'semantic-ui-react';
 
 interface Props {
     handlePartners: any
@@ -10,8 +9,6 @@ interface State {
     distance: number;
     sorting: string,
     partners: Array<any>,
-    selectedPartner: IPartner | null,
-    openModal: boolean
 }
 
 class SearchBox extends Component<Props, State> {
@@ -21,10 +18,7 @@ class SearchBox extends Component<Props, State> {
             distance: 0,
             sorting: 'a',
             partners: [],
-            selectedPartner: null,
-            openModal: false
         };
-
 
         this.handLeDistanceState = this.handLeDistanceState.bind(this);
         this.getAllByDistance = this.getAllByDistance.bind(this);
@@ -54,11 +48,10 @@ class SearchBox extends Component<Props, State> {
                         partners: partners
                     });
                     this.props.handlePartners(partners);
-                    console.log(partners)
                 },
-                (error) => {
+                (err) => {
                     return this.setState({
-                        partners: []
+                        partners: [],
                     });
                 }
             )
@@ -70,7 +63,8 @@ class SearchBox extends Component<Props, State> {
             <>
                 <Form className={'search-box-form'}>
                     <Form.Group>
-                        <Form.Input width={16} fluid label='Current Location' placeholder="51.5144636,-0.142571"
+                        <Form.Input className={'asd'} width={16} fluid label='Current Location'
+                                    placeholder="51.5144636,-0.142571"
                                     readOnly/>
 
                         <Form.Input width={16} fluid label='Distance' placeholder='Please Enter Distance (KM)'

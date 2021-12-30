@@ -23,24 +23,18 @@ createTheme('wash-theme', {
     background: {
         default: '#05445E',
     },
-    context: {
-        background: '#cb4b16',
-        text: '#FFFFFF',
-    },
     divider: {
         default: '#0d98ba',
     },
     highlightOnHover: {
         default: "#0d98ba"
     },
-    striped: {
-        background: "#c1c1c1"
-    }
 }, 'dark');
 const columns: TableColumn<ITData>[] = [
     {
         name: 'Id',
         selector: row => row.id,
+        maxWidth:'10px'
     },
     {
         name: 'Partner Name',
@@ -63,6 +57,7 @@ const columns: TableColumn<ITData>[] = [
         name: 'Office',
         selector: row => row.officeCount,
         sortable: true,
+        maxWidth:'10px'
     }
 ];
 
@@ -80,6 +75,6 @@ class TableBox extends Component<Props, State> {
                           data={this.props.partners}
                           highlightOnHover={true} theme="wash-theme" customStyles={customStyles}/>;
     };
-};
+}
 
 export default TableBox;

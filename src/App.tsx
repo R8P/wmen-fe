@@ -12,7 +12,7 @@ function App() {
         <div className={'App'}>
             <Container fluid className={'app-container'}>
                 <Header className={"wmen-title"} textAlign='center'>
-                    WMen Coding Exercise
+                    WMEN CODING EXERCISE
                 </Header>
                 <Grid>
                     <Grid.Row centered columns={2}>

@@ -28,6 +28,9 @@ a:hover{
 label {
     color: var(--wm-white);
 }
+.App {
+    min-height: 100vh;
+}
 .wmen-title{
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -37,10 +40,6 @@ label {
 }
 .app-container {
     padding-top: 6rem;
-}
-
-.App {
-    min-height: 100vh;
 }
 
 .segment{
