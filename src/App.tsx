@@ -11,7 +11,7 @@ function App() {
     return (
         <div className={'App'}>
             <Container fluid className={'app-container'}>
-                <Header as='h3' textAlign='center'>
+                <Header className={"wmen-title"} textAlign='center'>
                     WMen Coding Exercise
                 </Header>
                 <Grid>

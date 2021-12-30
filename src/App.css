@@ -28,7 +28,13 @@ a:hover{
 label {
     color: var(--wm-white);
 }
-
+.wmen-title{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #05445e;
+    font-size: 20px;
+}
 .app-container {
     padding-top: 6rem;
 }

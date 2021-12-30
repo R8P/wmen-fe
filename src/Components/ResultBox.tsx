@@ -31,7 +31,7 @@ class ResultBox extends Component<Props, State> {
         return (
             <>
                 <Segment className={partners.length > 0 ? "d-block" : "d-none"}>
-                    <Message warning>
+                    <Message info>
                         <Message.Header>Information about your partners within the distance range you choose.</Message.Header>
                     </Message>
                     <TableBox partners={partners}/>
