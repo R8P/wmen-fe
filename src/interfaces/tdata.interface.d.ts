@@ -4,6 +4,6 @@ interface ITData {
     name: string;
     address: string;
     website: string,
-    officeCount: number
+    offices: number
 }
 export default ITData;

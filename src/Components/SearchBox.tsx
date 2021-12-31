@@ -37,10 +37,9 @@ class SearchBox extends Component<Props, State> {
     }
 
     getAllByDistance() {
-        const url = new URL(`http://localhost:1337/partners/distances`);
-        url.searchParams.append("distance", this.state.distance.toString());
+        const endpoint = `http://localhost:3000/distances?distance=${this.state.distance}`;
 
-        fetch(url.href)
+        fetch(endpoint)
             .then(res => res.json())
             .then(
                 (partners) => {

@@ -55,7 +55,7 @@ const columns: TableColumn<ITData>[] = [
     },
     {
         name: 'Office',
-        selector: row => row.officeCount,
+        selector: row => row.offices,
         sortable: true,
         maxWidth:'10px'
     }
