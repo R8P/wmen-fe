@@ -6,7 +6,6 @@ const customStyles = {
     cells: {
         style: {
             cursor: "pointer",
-            whiteSpace: "no-wrap"
         }
     },
     headCells: {
@@ -34,16 +33,18 @@ const columns: TableColumn<ITData>[] = [
     {
         name: 'Id',
         selector: row => row.id,
-        maxWidth:'10px'
+        maxWidth:'5px'
     },
     {
         name: 'Partner Name',
         selector: row => row.name,
         sortable: true,
+        maxWidth:'150px'
     },
     {
         name: 'Address',
         selector: row => row.address,
+        maxWidth:'300px'
     },
     {
         name: 'Website',
@@ -57,7 +58,7 @@ const columns: TableColumn<ITData>[] = [
         name: 'Office',
         selector: row => row.offices,
         sortable: true,
-        maxWidth:'10px'
+        maxWidth:'5px'
     }
 ];
 
@@ -71,7 +72,7 @@ interface State {
 
 class TableBox extends Component<Props, State> {
     render() {
-        return <DataTable responsive={true} fixedHeader={true} fixedHeaderScrollHeight={"300px"} columns={columns}
+        return <DataTable fixedHeader={true} fixedHeaderScrollHeight={"300px"} columns={columns}
                           data={this.props.partners}
                           highlightOnHover={true} theme="wash-theme" customStyles={customStyles}/>;
     };
